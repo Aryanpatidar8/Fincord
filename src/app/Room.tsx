@@ -2,6 +2,7 @@
 
 import { ReactNode, useMemo } from "react";
 import { RoomProvider } from "@liveblocks/react/suspense";
+import { LiveList, LiveMap } from "@liveblocks/client";
 import { useSearchParams } from "next/navigation";
 import { ClientSideSuspense } from "@liveblocks/react";
 import { Loading } from "@/components/Loading";
@@ -14,6 +15,12 @@ export function Room({ children }: { children: ReactNode }) {
       id={roomId}
       initialPresence={{
         cursor: null,
+        selection: [],
+      }}
+      initialStorage={{
+        messages: new LiveList([]),
+        layers: new LiveMap(),
+        layerIds: new LiveList([]),
       }}
     >
       <ClientSideSuspense fallback={<Loading />}>{children}</ClientSideSuspense>

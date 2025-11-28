@@ -9,6 +9,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-sans);
+  background: #1e1e1e;
+  color: #d4d4d4;
 }
 
 a {
@@ -23,11 +25,8 @@ a {
 main {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  background: #e8eaee;
+  padding: 0;
+  background: #1e1e1e;
 }
 
 /* Cursor selection background */

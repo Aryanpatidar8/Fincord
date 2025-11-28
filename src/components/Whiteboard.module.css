@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.canvasContainer {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    display: block;
+}
+
+.drawCursor {
+    cursor: crosshair;
+}
+
+.eraserCursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13.5l-9 9-6.5-6.5 9-9 1.5 1.5"/><path d="M14 6l7 7"/><path d="M16 16l4 4"/></svg>') 0 24, auto;
+}
+
+.shape {
+    transition: opacity 0.2s;
+}
+
+.eraserCursor .shape:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* Floating Toolbar */
+.toolbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    transition: all 0.2s ease;
+}
+
+.toolbar:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.toolGroup {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.separator {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toolButton {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #555;
+}
+
+.toolButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+.active {
+    background-color: #007acc;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
+}
+
+.active:hover {
+    background-color: #006bb3;
+}
+
+.colorBtn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.colorBtn:hover {
+    transform: scale(1.2);
+}
+
+.activeColor {
+    border-color: #333;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
